@@ -1,6 +1,6 @@
 # JMangaBench_Hard v1.0 — a hard-text Japanese manga OCR benchmark
 
-[English](README.md) | [中文](README_zh.md) · [Interactive leaderboard](https://muscgab.github.io/JMangaBench_Hard/) · [Dataset (images)](https://huggingface.co/datasets/muscgab/JMangaBench_Hard)
+[English](README.md) | [中文](README_zh.md) · [Interactive leaderboard](https://muscgab.github.io/JMangaBench_Hard/) · Dataset (images): [Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) · [ModelScope](https://www.modelscope.cn/datasets/muscgab/JMangaBench_Hard)
 
 JMangaBench_Hard evaluates OCR models on the text that [JMangaBench_Read](https://github.com/muscgab/JMangaBench_Read) leaves out or rarely contains: sound effects drawn into the artwork, stylised and decorative lettering, titles, and handwriting. It is a companion to Read and uses the same page pool, normalization and model setups.
 
@@ -273,7 +273,7 @@ python eval/score.py --pred my_preds.jsonl --name my_model --out results/my_mode
 | `speed/` | speed scripts |
 | `results/` | raw speed results per model (per-image run and max-throughput search) |
 | `figures/`, `docs/` | chart scripts, static charts and the interactive leaderboard |
-| [Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) | crop images at original resolution: `crops/<key>.png` |
+| [Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) / [ModelScope](https://www.modelscope.cn/datasets/muscgab/JMangaBench_Hard) | crop images at original resolution: `crops/<key>.png`, with `crops/metadata.jsonl` |
 
 `gt.jsonl` fields: `key`, `file`, `text`, `text_rin`, `n_chars`, `review` (`consensus` / `human`), `box_edited`, `xyxy`, `xyxy_yolo`, `crop_wh`, `page_id`, `box`, `rating`, `visual_style`, `orientation`, `sol_role`, `sol_font`, `review_sec`.
 

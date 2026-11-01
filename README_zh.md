@@ -1,6 +1,6 @@
 # JMangaBench_Hard v1.0：日文漫画难文字 OCR 评测集
 
-[English](README.md) | [中文](README_zh.md) · [交互式榜单](https://muscgab.github.io/JMangaBench_Hard/) · [数据集（图片）](https://huggingface.co/datasets/muscgab/JMangaBench_Hard)
+[English](README.md) | [中文](README_zh.md) · [交互式榜单](https://muscgab.github.io/JMangaBench_Hard/) · 数据集（图片）：[Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) · [ModelScope](https://www.modelscope.cn/datasets/muscgab/JMangaBench_Hard)
 
 JMangaBench_Hard 评测 OCR 模型在 [JMangaBench_Read](https://github.com/muscgab/JMangaBench_Read) 不收录或很少出现的文字上的表现：画进画面里的拟声词、风格化与装饰字体、标题和手写字。它是 Read 的姊妹集，页面池、归一化规则和参评模型设置都与 Read 相同。
 
@@ -273,7 +273,7 @@ python eval/score.py --pred my_preds.jsonl --name my_model --out results/my_mode
 | `speed/` | 测速脚本 |
 | `results/` | 各模型原始测速结果（逐张延迟和最大吞吐搜索） |
 | `figures/`、`docs/` | 图表脚本、静态图和交互式榜单 |
-| [Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) | 原分辨率裁图：`crops/<key>.png` |
+| [Hugging Face](https://huggingface.co/datasets/muscgab/JMangaBench_Hard) / [ModelScope](https://www.modelscope.cn/datasets/muscgab/JMangaBench_Hard) | 原分辨率裁图：`crops/<key>.png`，附 `crops/metadata.jsonl` |
 
 `gt.jsonl` 字段：`key`、`file`、`text`、`text_rin`、`n_chars`、`review`（`consensus` / `human`）、`box_edited`、`xyxy`、`xyxy_yolo`、`crop_wh`、`page_id`、`box`、`rating`、`visual_style`、`orientation`、`sol_role`、`sol_font`、`review_sec`。
 

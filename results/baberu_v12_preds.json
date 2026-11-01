@@ -1,0 +1,16 @@
+{
+ "model": "baberu_v12",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 230.7,
+ "lat_ms_mean": 76.5,
+ "lat_ms_p50": 66.14,
+ "lat_ms_p90": 109.08,
+ "lat_ms_p99": 243.17,
+ "lat_ms_max": 469.26,
+ "imgs_per_sec_bs1": 13.07,
+ "peak_mem_mb_bs1": 254,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

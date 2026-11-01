@@ -1,0 +1,16 @@
+{
+ "model": "nar_small",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 20.8,
+ "lat_ms_mean": 6.87,
+ "lat_ms_p50": 6.79,
+ "lat_ms_p90": 7.83,
+ "lat_ms_p99": 10.16,
+ "lat_ms_max": 24.1,
+ "imgs_per_sec_bs1": 145.28,
+ "peak_mem_mb_bs1": 818,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

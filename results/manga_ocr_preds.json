@@ -1,0 +1,16 @@
+{
+ "model": "manga_ocr",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 182.5,
+ "lat_ms_mean": 60.52,
+ "lat_ms_p50": 55.91,
+ "lat_ms_p90": 78.42,
+ "lat_ms_p99": 142.14,
+ "lat_ms_max": 200.81,
+ "imgs_per_sec_bs1": 16.52,
+ "peak_mem_mb_bs1": 247,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

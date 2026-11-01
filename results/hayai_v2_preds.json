@@ -1,0 +1,16 @@
+{
+ "model": "hayai_v2",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 256.2,
+ "lat_ms_mean": 84.96,
+ "lat_ms_p50": 71.29,
+ "lat_ms_p90": 120.13,
+ "lat_ms_p99": 256.18,
+ "lat_ms_max": 519.64,
+ "imgs_per_sec_bs1": 11.77,
+ "peak_mem_mb_bs1": 324,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

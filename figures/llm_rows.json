@@ -1,0 +1,149 @@
+[
+ {
+  "id": "llm_sol",
+  "name": "GPT-6.1 Sol",
+  "score": 97.47,
+  "sub": {
+   "all": {
+    "score": 97.47,
+    "cer": 2.47,
+    "em": 93.6,
+    "em_nfkc": 93.27,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 100.0,
+    "cer": 0.0,
+    "em": 100.0,
+    "em_nfkc": 100.0,
+    "n": 2161
+   },
+   "human": {
+    "score": 91.08,
+    "cer": 7.86,
+    "em": 77.4,
+    "em_nfkc": 76.23,
+    "n": 854
+   },
+   "sfx": {
+    "score": 97.16,
+    "cer": 3.29,
+    "em": 92.75,
+    "em_nfkc": 92.43,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 97.8,
+    "cer": 1.66,
+    "em": 94.6,
+    "em_nfkc": 94.22,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 77.88,
+    "cer": 23.48,
+    "em": 42.67,
+    "em_nfkc": 41.33,
+    "n": 75
+   }
+  }
+ },
+ {
+  "id": "llm_opus",
+  "name": "Claude Opus 5.5",
+  "score": 94.38,
+  "sub": {
+   "all": {
+    "score": 94.38,
+    "cer": 5.61,
+    "em": 86.0,
+    "em_nfkc": 85.41,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 100.0,
+    "cer": 0.0,
+    "em": 100.0,
+    "em_nfkc": 99.44,
+    "n": 2161
+   },
+   "human": {
+    "score": 80.16,
+    "cer": 17.87,
+    "em": 50.59,
+    "em_nfkc": 49.88,
+    "n": 854
+   },
+   "sfx": {
+    "score": 93.43,
+    "cer": 7.6,
+    "em": 84.2,
+    "em_nfkc": 83.65,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 95.47,
+    "cer": 3.79,
+    "em": 87.88,
+    "em_nfkc": 87.22,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 72.85,
+    "cer": 26.22,
+    "em": 37.33,
+    "em_nfkc": 37.33,
+    "n": 75
+   }
+  }
+ },
+ {
+  "id": "llm_terra",
+  "name": "GPT-6.1 Terra",
+  "score": 92.81,
+  "sub": {
+   "all": {
+    "score": 92.81,
+    "cer": 6.89,
+    "em": 84.58,
+    "em_nfkc": 83.65,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 100.0,
+    "cer": 0.0,
+    "em": 100.0,
+    "em_nfkc": 99.54,
+    "n": 2161
+   },
+   "human": {
+    "score": 74.62,
+    "cer": 21.96,
+    "em": 45.55,
+    "em_nfkc": 43.44,
+    "n": 854
+   },
+   "sfx": {
+    "score": 91.46,
+    "cer": 9.17,
+    "em": 82.02,
+    "em_nfkc": 81.25,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 94.52,
+    "cer": 4.69,
+    "em": 87.97,
+    "em_nfkc": 86.65,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 66.07,
+    "cer": 39.33,
+    "em": 30.67,
+    "em_nfkc": 30.67,
+    "n": 75
+   }
+  }
+ }
+]

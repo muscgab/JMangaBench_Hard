@@ -1,0 +1,16 @@
+{
+ "model": "hayai_nova_p256",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 137.0,
+ "lat_ms_mean": 45.42,
+ "lat_ms_p50": 44.58,
+ "lat_ms_p90": 53.04,
+ "lat_ms_p99": 55.71,
+ "lat_ms_max": 167.04,
+ "imgs_per_sec_bs1": 22.01,
+ "peak_mem_mb_bs1": 497,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

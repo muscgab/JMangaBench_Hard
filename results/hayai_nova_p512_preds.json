@@ -1,0 +1,16 @@
+{
+ "model": "hayai_nova_p512",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 147.1,
+ "lat_ms_mean": 48.77,
+ "lat_ms_p50": 47.22,
+ "lat_ms_p90": 55.99,
+ "lat_ms_p99": 59.08,
+ "lat_ms_max": 82.56,
+ "imgs_per_sec_bs1": 20.5,
+ "peak_mem_mb_bs1": 542,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

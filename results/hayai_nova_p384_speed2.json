@@ -1,0 +1,254 @@
+{
+ "model": "hayai_nova_p384",
+ "subset": 512,
+ "split_check_vs_preds": 1.0,
+ "workers": 4,
+ "main_threads": 3,
+ "method": "parallel CPU prep (fork pool) + GPU infer; coarse doubling + fine [B/2,2B] step B/4, 3 reps median",
+ "points": [
+  {
+   "batch": 1,
+   "imgs_per_sec": 19.19,
+   "imgs_per_sec_runs": [
+    19.19
+   ],
+   "reps": 1,
+   "batch_ms_p50": 53.53,
+   "batch_ms_p90": 54.76,
+   "batch_ms_max": 229.01,
+   "n_full_batches": 512,
+   "prep_wait_frac": 0.001,
+   "peak_alloc_mb": 502,
+   "peak_reserved_mb": 606,
+   "gpu_util_mean": 41.6,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 2,
+   "imgs_per_sec": 35.85,
+   "imgs_per_sec_runs": [
+    35.85
+   ],
+   "reps": 1,
+   "batch_ms_p50": 48.73,
+   "batch_ms_p90": 57.49,
+   "batch_ms_max": 269.06,
+   "n_full_batches": 256,
+   "prep_wait_frac": 0.002,
+   "peak_alloc_mb": 519,
+   "peak_reserved_mb": 616,
+   "gpu_util_mean": 46.2,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 4,
+   "imgs_per_sec": 70.45,
+   "imgs_per_sec_runs": [
+    70.45
+   ],
+   "reps": 1,
+   "batch_ms_p50": 49.18,
+   "batch_ms_p90": 57.86,
+   "batch_ms_max": 205.93,
+   "n_full_batches": 128,
+   "prep_wait_frac": 0.005,
+   "peak_alloc_mb": 538,
+   "peak_reserved_mb": 626,
+   "gpu_util_mean": 49.9,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 8,
+   "imgs_per_sec": 124.9,
+   "imgs_per_sec_runs": [
+    124.9
+   ],
+   "reps": 1,
+   "batch_ms_p50": 50.03,
+   "batch_ms_p90": 108.2,
+   "batch_ms_max": 193.55,
+   "n_full_batches": 64,
+   "prep_wait_frac": 0.025,
+   "peak_alloc_mb": 582,
+   "peak_reserved_mb": 652,
+   "gpu_util_mean": 55.0,
+   "agree_with_bs1": 0.998
+  },
+  {
+   "batch": 16,
+   "imgs_per_sec": 181.42,
+   "imgs_per_sec_runs": [
+    177.86,
+    181.42,
+    183.16
+   ],
+   "reps": 3,
+   "batch_ms_p50": 57.41,
+   "batch_ms_p90": 189.43,
+   "batch_ms_max": 210.77,
+   "n_full_batches": 96,
+   "prep_wait_frac": 0.038,
+   "peak_alloc_mb": 996,
+   "peak_reserved_mb": 3234,
+   "gpu_util_mean": 57.1,
+   "agree_with_bs1": 0.998
+  },
+  {
+   "batch": 24,
+   "imgs_per_sec": 202.78,
+   "imgs_per_sec_runs": [
+    189.89,
+    202.78,
+    205.41
+   ],
+   "reps": 3,
+   "batch_ms_p50": 75.83,
+   "batch_ms_p90": 194.7,
+   "batch_ms_max": 238.43,
+   "n_full_batches": 63,
+   "prep_wait_frac": 0.09,
+   "peak_alloc_mb": 1061,
+   "peak_reserved_mb": 1396,
+   "gpu_util_mean": 60.1,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 32,
+   "imgs_per_sec": 212.21,
+   "imgs_per_sec_runs": [
+    209.23,
+    212.21,
+    216.61
+   ],
+   "reps": 3,
+   "batch_ms_p50": 95.17,
+   "batch_ms_p90": 228.45,
+   "batch_ms_max": 256.85,
+   "n_full_batches": 48,
+   "prep_wait_frac": 0.126,
+   "peak_alloc_mb": 900,
+   "peak_reserved_mb": 1402,
+   "gpu_util_mean": 58.3,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 40,
+   "imgs_per_sec": 226.56,
+   "imgs_per_sec_runs": [
+    221.72,
+    226.56,
+    231.54
+   ],
+   "reps": 3,
+   "batch_ms_p50": 126.84,
+   "batch_ms_p90": 219.85,
+   "batch_ms_max": 255.76,
+   "n_full_batches": 36,
+   "prep_wait_frac": 0.141,
+   "peak_alloc_mb": 1001,
+   "peak_reserved_mb": 1364,
+   "gpu_util_mean": 65.5,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 48,
+   "imgs_per_sec": 233.19,
+   "imgs_per_sec_runs": [
+    222.35,
+    233.19,
+    235.03
+   ],
+   "reps": 3,
+   "batch_ms_p50": 137.39,
+   "batch_ms_p90": 235.31,
+   "batch_ms_max": 254.96,
+   "n_full_batches": 30,
+   "prep_wait_frac": 0.195,
+   "peak_alloc_mb": 1096,
+   "peak_reserved_mb": 1510,
+   "gpu_util_mean": 56.4,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 56,
+   "imgs_per_sec": 202.49,
+   "imgs_per_sec_runs": [
+    186.33,
+    202.49,
+    203.84
+   ],
+   "reps": 3,
+   "batch_ms_p50": 217.34,
+   "batch_ms_p90": 304.13,
+   "batch_ms_max": 324.02,
+   "n_full_batches": 27,
+   "prep_wait_frac": 0.214,
+   "peak_alloc_mb": 1240,
+   "peak_reserved_mb": 1888,
+   "gpu_util_mean": 55.4,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 64,
+   "imgs_per_sec": 163.89,
+   "imgs_per_sec_runs": [
+    160.73,
+    163.89,
+    171.7
+   ],
+   "reps": 3,
+   "batch_ms_p50": 203.72,
+   "batch_ms_p90": 380.15,
+   "batch_ms_max": 381.15,
+   "n_full_batches": 24,
+   "prep_wait_frac": 0.378,
+   "peak_alloc_mb": 1276,
+   "peak_reserved_mb": 1954,
+   "gpu_util_mean": 51.0,
+   "agree_with_bs1": 1.0
+  },
+  {
+   "batch": 128,
+   "imgs_per_sec": 147.96,
+   "imgs_per_sec_runs": [
+    147.96
+   ],
+   "reps": 1,
+   "batch_ms_p50": 494.83,
+   "batch_ms_p90": 528.22,
+   "batch_ms_max": 528.22,
+   "n_full_batches": 4,
+   "prep_wait_frac": 0.498,
+   "peak_alloc_mb": 1941,
+   "peak_reserved_mb": 3234,
+   "gpu_util_mean": 37.2,
+   "agree_with_bs1": 1.0
+  }
+ ],
+ "best": {
+  "batch": 48,
+  "imgs_per_sec": 233.19,
+  "imgs_per_sec_runs": [
+   222.35,
+   233.19,
+   235.03
+  ],
+  "reps": 3,
+  "batch_ms_p50": 137.39,
+  "batch_ms_p90": 235.31,
+  "batch_ms_max": 254.96,
+  "n_full_batches": 30,
+  "prep_wait_frac": 0.195,
+  "peak_alloc_mb": 1096,
+  "peak_reserved_mb": 1510,
+  "gpu_util_mean": 56.4,
+  "agree_with_bs1": 1.0
+ },
+ "plateau_within_3pct": [
+  40,
+  48
+ ],
+ "oom_at": null,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124"
+}

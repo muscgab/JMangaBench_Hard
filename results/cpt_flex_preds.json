@@ -1,0 +1,16 @@
+{
+ "model": "cpt_flex",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 19.4,
+ "lat_ms_mean": 6.42,
+ "lat_ms_p50": 5.82,
+ "lat_ms_p90": 7.81,
+ "lat_ms_p99": 13.15,
+ "lat_ms_max": 19.55,
+ "imgs_per_sec_bs1": 155.67,
+ "peak_mem_mb_bs1": 1688,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

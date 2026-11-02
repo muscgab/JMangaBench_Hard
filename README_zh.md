@@ -10,6 +10,8 @@ JMangaBench_Hard 评测 OCR 模型在 [JMangaBench_Read](https://github.com/musc
 - 只收有唯一公认读法的框；两种及以上读法都能同样解释图像的框一律删除。
 - 在一张 RTX 4070 上测准确率和速度。
 
+> **说明：** 本集只收难例。分数反映的是模型在极端情况下的表现，不代表日常读漫画时的真实水平。一般页面上的文字以普通对白和旁白为主，这部分请看 [JMangaBench_Read](https://github.com/muscgab/JMangaBench_Read)。
+
 发现标签、分数或文档有错误，欢迎[提 issue](https://github.com/muscgab/JMangaBench_Hard/issues) 联系我们。
 
 ## 排行榜

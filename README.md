@@ -10,6 +10,8 @@ JMangaBench_Hard evaluates OCR models on the text that [JMangaBench_Read](https:
 - A box is kept only if it has one accepted reading; boxes that two or more readings explain equally well are removed.
 - Accuracy and speed measured on one RTX 4070.
 
+> **Note.** Every box here is a hard case. The scores show how models behave at the extreme end, not how well they read manga in everyday use. Most text on a typical page is ordinary dialogue and narration; for that, see [JMangaBench_Read](https://github.com/muscgab/JMangaBench_Read).
+
 Found an error in a label, a score or the docs? Please [open an issue](https://github.com/muscgab/JMangaBench_Hard/issues). Corrections are welcome.
 
 ## Leaderboard

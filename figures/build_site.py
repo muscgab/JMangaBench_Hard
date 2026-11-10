@@ -17,7 +17,9 @@ NOTES = {"ar_exp": ["By the authors. Experimental release: muscgab/manga-ocr-ar-
          "preview": ["By the authors.", "本评测集作者的模型。"],
          "hayai_v2": ["hayai-ocr-v2 main branch (weights = v2.1).", "hayai-ocr-v2 main 分支（权重 = v2.1）。"],
          "baberu_v12": ["genshiai-daichi/baberu-ocr, tag v1.2.", "genshiai-daichi/baberu-ocr，标签 v1.2。"],
-         "manga_ocr": ["kha-white/manga-ocr-base. Parameter count estimated from the fp32 weight file size.", "kha-white/manga-ocr-base。参数量按 fp32 权重文件大小估算。"]}
+         "manga_ocr": ["kha-white/manga-ocr-base. Parameter count estimated from the fp32 weight file size.", "kha-white/manga-ocr-base。参数量按 fp32 权重文件大小估算。"],
+         "paddleocr_vl_1_6_manga_lora_v6": ["sorryhyun/paddleocr-vl-1.6-manga-lora, folder v6 (commit 57e7c650): PaddleOCR-VL-1.6 with a LoRA on the vision tower and 18 fully trained decoder layers; trained on Manga109-s and COO, among others. Accuracy only: Ascend 910B, bf16, the model card's code (batch 16, greedy, at most 80 new tokens); speed not measured.",
+                                            "sorryhyun/paddleocr-vl-1.6-manga-lora 的 v6 目录（commit 57e7c650）：PaddleOCR-VL-1.6，视觉塔 LoRA + 18 层解码器全量训练；训练数据包括 Manga109-s 与 COO 等。只测准确率：Ascend 910B、bf16、模型卡代码（batch 16、贪心、最多 80 个新 token）；未测速度。"]}
 for r in rows: r["note"] = NOTES.get(r["id"], ["", ""])
 HTML = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

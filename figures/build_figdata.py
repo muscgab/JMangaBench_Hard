@@ -20,6 +20,7 @@ M = [("ar_exp", "manga-ocr-ar-experimental", "AR", "ours", 130.6, "fp16", False)
      ("hayai_nova_p512", "Hayai v2.5 Nova p512", "AR", "hayai", 157.0, "fp16", False),
      ("hayai_v2", "Hayai v2.1", "AR", "hayai", 156.0, "fp16", False),
      ("baberu_v12", "baberuOCR v1.2", "AR", "other", 113.0, "fp16", False),
+     ("paddleocr_vl_1_6_manga_lora_v6", "PaddleOCR-VL-1.6 manga LoRA v6", "AR (VLM)", "other", 959.0, "bf16 (Ascend 910B)", False),  # 11-10: accuracy only, no speed
      ("manga_ocr", "mangaOCR", "AR", "other", 111.0, "fp16", False)]
 SUBS = {"all": "all", "agreed": "agreed", "human": "human", "sfx": "style_sfx_lettering", "handwritten": "style_handwritten", "adjusted": "box_adjusted"}
 def subs(pred):
@@ -28,18 +29,19 @@ def subs(pred):
 rows = []
 for i, name, arch, group, par, prec, more in M:
     pred = {d["key"]: d.get("pred") or "" for d in map(json.loads, open(R / f"data/predictions/{i}.jsonl", encoding="utf-8"))}
-    p = json.load(open(R / f"results/{i}_preds.json")); s2 = json.load(open(R / f"results/{i}_speed2.json"))
+    tp = R / f"results/{i}_preds.json"  # 11-10: models without GPU timing get speed fields None
+    p = json.load(open(tp)) if tp.exists() else None; s2 = json.load(open(R / f"results/{i}_speed2.json")) if tp.exists() else None
     sb = subs(pred); a = sb["all"]
     rows.append({"id": i, "name": name, "arch": arch, "group": group, "more": more, "precision": prec, "params_m": par,
                  "score": a["score"], "cer": a["cer"], "em": a["em"], "em_nfkc": a["em_nfkc"],
-                 "lat": p["lat_ms_mean"], "lat_p50": p["lat_ms_p50"], "vram_bs1": p["peak_mem_mb_bs1"],
-                 "thr": s2["best"]["imgs_per_sec"], "best_bs": s2["best"]["batch"], "best_mem": s2["best"]["peak_reserved_mb"],
-                 "agree_bs1": s2["best"]["agree_with_bs1"], "sub": sb})
+                 "lat": p["lat_ms_mean"] if p else None, "lat_p50": p["lat_ms_p50"] if p else None, "vram_bs1": p["peak_mem_mb_bs1"] if p else None,
+                 "thr": s2["best"]["imgs_per_sec"] if s2 else None, "best_bs": s2["best"]["batch"] if s2 else None, "best_mem": s2["best"]["peak_reserved_mb"] if s2 else None,
+                 "agree_bs1": s2["best"]["agree_with_bs1"] if s2 else None, "sub": sb})
 llm = []
 L = {d["key"]: d["readings"] for d in map(json.loads, open(R / "data/llm_readings.jsonl", encoding="utf-8"))}
 for k, name in (("sol", "GPT-6.1 Sol"), ("opus", "Claude Opus 5.5"), ("terra", "GPT-6.1 Terra")):
     sb = subs({key: r[k] for key, r in L.items()}); llm.append({"id": f"llm_{k}", "name": name, "score": sb["all"]["score"], "sub": sb})
 json.dump(rows, open(F / "interactive_data.json", "w"), ensure_ascii=False, indent=1)
 json.dump(llm, open(F / "llm_rows.json", "w"), ensure_ascii=False, indent=1)
-for r in sorted(rows, key=lambda r: -r["score"]): print(f"{r['name']:28s} {r['score']:6.2f} {r['cer']:6.2f} {r['em']:6.2f}  {r['lat']:6.1f} ms  {r['thr']:6.1f} img/s")
+for r in sorted(rows, key=lambda r: -r["score"]): print(f"{r['name']:28s} {r['score']:6.2f} {r['cer']:6.2f} {r['em']:6.2f}  {r['lat']} ms  {r['thr']} img/s")
 for r in llm: print(r["name"], r["score"], r["sub"]["human"])

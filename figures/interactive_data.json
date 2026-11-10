@@ -832,6 +832,70 @@
   }
  },
  {
+  "id": "paddleocr_vl_1_6_manga_lora_v6",
+  "name": "PaddleOCR-VL-1.6 manga LoRA v6",
+  "arch": "AR (VLM)",
+  "group": "other",
+  "more": false,
+  "precision": "bf16 (Ascend 910B)",
+  "params_m": 959.0,
+  "score": 91.87,
+  "cer": 9.21,
+  "em": 78.57,
+  "em_nfkc": 69.55,
+  "lat": null,
+  "lat_p50": null,
+  "vram_bs1": null,
+  "thr": null,
+  "best_bs": null,
+  "best_mem": null,
+  "agree_bs1": null,
+  "sub": {
+   "all": {
+    "score": 91.87,
+    "cer": 9.21,
+    "em": 78.57,
+    "em_nfkc": 69.55,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 95.07,
+    "cer": 5.72,
+    "em": 86.58,
+    "em_nfkc": 77.93,
+    "n": 2161
+   },
+   "human": {
+    "score": 83.8,
+    "cer": 16.84,
+    "em": 58.31,
+    "em_nfkc": 48.36,
+    "n": 854
+   },
+   "sfx": {
+    "score": 92.27,
+    "cer": 9.27,
+    "em": 79.89,
+    "em_nfkc": 70.08,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 91.13,
+    "cer": 9.17,
+    "em": 76.7,
+    "em_nfkc": 68.18,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 79.41,
+    "cer": 21.34,
+    "em": 50.67,
+    "em_nfkc": 44.0,
+    "n": 75
+   }
+  }
+ },
+ {
   "id": "manga_ocr",
   "name": "mangaOCR",
   "arch": "AR",

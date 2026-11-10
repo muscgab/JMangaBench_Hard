@@ -21,18 +21,19 @@ JMangaBench_Hard 评测 OCR 模型在 [JMangaBench_Read](https://github.com/musc
 | # | 模型 | 架构 | 参数量 | 得分 ↑ | CER % ↓ | EM % ↑ | EM NFKC % ↑ | 逐张 ms ↓ | 最大吞吐 img/s ↑ |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | manga-ocr-ar-experimental † ‡ | AR | 131M | **95.98** | 4.75 | 88.52 | 88.26 | 30.1 | 197 (b20) |
-| 2 | manga-ocr-base-CPT-flex † ¶ | AR | 111M | **90.17** | 11.16 | 74.73 | 74.43 | 6.4 | 346 (b24) |
-| 3 | manga-ocr-nar-small † | NAR | 54M | **89.95** | 11.15 | 73.03 | 72.77 | 6.9 | 394 (b10) |
-| 4 | manga-ocr-charspot-small † ◇ | CharDet | 11M | **89.80** | 11.50 | 73.90 | 73.37 | 7.1 | 283 (b256) |
-| 5 | Hayai v2.5 Nova p256 | AR | 157M | **88.87** | 11.61 | 72.34 | 71.87 | 45.4 | 301 (b40) |
-| 6 | Preview † | NAR | 196M | **88.78** | 12.72 | 71.04 | 69.62 | 38.4 | 138 (b16) |
-| 7 | Hayai v2.5 Nova p384 | AR | 157M | **88.48** | 11.96 | 72.31 | 71.91 | 46.1 | 233 (b48) |
-| 8 | Hayai v2.5 Nova p512 | AR | 157M | **88.35** | 12.11 | 71.71 | 71.31 | 48.8 | 143 (b16) |
-| 9 | manga-ocr-nar-small-distil † ∥ | NAR | 30M | **87.46** | 14.16 | 68.99 | 68.72 | 6.4 | 393 (b10) |
-| 10 | manga-ocr-charspot-nano † ◇ | CharDet | 1.7M | **85.01** | 17.78 | 65.07 | 64.54 | 4.5 | 341 (b128) |
-| 11 | Hayai v2.1 | AR | 156M | **83.62** | 17.09 | 62.59 | 60.36 | 85.0 | 114 (b128) |
-| 12 | baberuOCR v1.2 | AR | 113M | **81.84** | 20.67 | 63.42 | 60.90 | 76.5 | 136 (b192) |
-| 13 | mangaOCR | AR | 111M | **55.67** | 48.33 | 31.24 | 29.68 | 60.5 | 74 (b64) |
+| 2 | PaddleOCR-VL-1.6 manga LoRA v6 ※ | AR (VLM) | 959M | **91.87** | 9.21 | 78.57 | 69.55 | — | — |
+| 3 | manga-ocr-base-CPT-flex † ¶ | AR | 111M | **90.17** | 11.16 | 74.73 | 74.43 | 6.4 | 346 (b24) |
+| 4 | manga-ocr-nar-small † | NAR | 54M | **89.95** | 11.15 | 73.03 | 72.77 | 6.9 | 394 (b10) |
+| 5 | manga-ocr-charspot-small † ◇ | CharDet | 11M | **89.80** | 11.50 | 73.90 | 73.37 | 7.1 | 283 (b256) |
+| 6 | Hayai v2.5 Nova p256 | AR | 157M | **88.87** | 11.61 | 72.34 | 71.87 | 45.4 | 301 (b40) |
+| 7 | Preview † | NAR | 196M | **88.78** | 12.72 | 71.04 | 69.62 | 38.4 | 138 (b16) |
+| 8 | Hayai v2.5 Nova p384 | AR | 157M | **88.48** | 11.96 | 72.31 | 71.91 | 46.1 | 233 (b48) |
+| 9 | Hayai v2.5 Nova p512 | AR | 157M | **88.35** | 12.11 | 71.71 | 71.31 | 48.8 | 143 (b16) |
+| 10 | manga-ocr-nar-small-distil † ∥ | NAR | 30M | **87.46** | 14.16 | 68.99 | 68.72 | 6.4 | 393 (b10) |
+| 11 | manga-ocr-charspot-nano † ◇ | CharDet | 1.7M | **85.01** | 17.78 | 65.07 | 64.54 | 4.5 | 341 (b128) |
+| 12 | Hayai v2.1 | AR | 156M | **83.62** | 17.09 | 62.59 | 60.36 | 85.0 | 114 (b128) |
+| 13 | baberuOCR v1.2 | AR | 113M | **81.84** | 20.67 | 63.42 | 60.90 | 76.5 | 136 (b192) |
+| 14 | mangaOCR | AR | 111M | **55.67** | 48.33 | 31.24 | 29.68 | 60.5 | 74 (b64) |
 | – | GPT-6.1 Sol * | LLM | — | 97.47 | 2.47 | 93.60 | 93.27 | — | — |
 | – | Claude Opus 5.5 * | LLM | — | 94.38 | 5.61 | 86.00 | 85.41 | — | — |
 | – | GPT-6.1 Terra * | LLM | — | 92.81 | 6.89 | 84.58 | 83.65 | — | — |
@@ -51,15 +52,17 @@ JMangaBench_Hard 评测 OCR 模型在 [JMangaBench_Read](https://github.com/musc
 - ∥ manga-ocr-nar-small-distil：在最大吞吐的 batch 下，512 张计时裁图中 96.7% 的输出与 batch 1 相同；其他模型都在 99.8–100%。
 - ◇ 字符检测加学习到的阅读顺序，没有文本解码器。
 - △ nar-small-R16：作者的实验模型（[muscgab/manga-ocr-nar-small](https://huggingface.co/muscgab/manga-ocr-nar-small/tree/r16) 的 `r16` 分支），列出但不排名。
+- ※ PaddleOCR-VL-1.6 manga LoRA v6：[sorryhyun/paddleocr-vl-1.6-manga-lora](https://huggingface.co/sorryhyun/paddleocr-vl-1.6-manga-lora/tree/57e7c65024d753022299340b3b9b6aafc158a79b/v6) 的 `v6` 目录（commit 57e7c650），在 [PaddlePaddle/PaddleOCR-VL-1.6](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6) 上微调；训练数据包括 Manga109-s 与 COO。只测准确率（2026-11-10 加入）：在 Ascend 910B NPU 上以 bf16 运行，加载与生成用其模型卡的代码（每批 16 框、贪心解码、最多 80 个新 token；没有输出达到上限）。未测速度，因此速度各列为空，图中也没有它。裁图与其他模型一样原样输入（其模型卡建议留 12% 边距）。
 - \* LLM 识别器。三家一致的读法直接构成 2,161 个标签，人工审核时也展示了它们的读法，所以这几行只作参考、不排名。在 854 个人工裁定框上：GPT-6.1 Sol 得分 91.08 / EM 77.40，Claude Opus 5.5 80.16 / EM 50.59，GPT-6.1 Terra 74.62 / EM 45.55。
 - PaddleOCR-VL-For-Manga（在 Read 榜单上）本版本未测。
-- 准确率各列用 batch 1 的输出。EM NFKC：只做 Unicode NFKC 后的全匹配率，供参考。`bN`：最大吞吐时的 batch 大小。
+- 准确率各列用 batch 1 的输出（PaddleOCR-VL-1.6 manga LoRA v6 为每批 16 框，见 ※）。EM NFKC：只做 Unicode NFKC 后的全匹配率，供参考。`bN`：最大吞吐时的 batch 大小。
 
 ### 各板块 EM
 
 | 模型 | 三家一致 (2,161) | 人工裁定 (854) | 拟声字 (1,835) | 手写 (1,056) | 调整过框 (75) |
 |---|---|---|---|---|---|
 | manga-ocr-ar-experimental | 94.26 | 74.00 | 89.26 | 88.07 | 70.67 |
+| PaddleOCR-VL-1.6 manga LoRA v6 | 86.58 | 58.31 | 79.89 | 76.70 | 50.67 |
 | manga-ocr-base-CPT-flex | 83.20 | 53.28 | 73.02 | 78.12 | 60.00 |
 | manga-ocr-nar-small | 82.05 | 50.23 | 71.06 | 76.80 | 52.00 |
 | manga-ocr-charspot-small | 82.14 | 53.04 | 72.32 | 77.56 | 48.00 |
@@ -236,6 +239,7 @@ $$s_i = 1 - \frac{\mathrm{ED}(p_i, g_i)}{\max(|p_i|, |g_i|)}, \qquad \text{得�
 | Hayai v2.1 | [JustANormalTinkerer/hayai-ocr-v2](https://huggingface.co/JustANormalTinkerer/hayai-ocr-v2)（main 分支 = v2.1） | 256 patches；贪心解码；fp16 |
 | Hayai v2.5 Nova | [JustANormalTinkerer/hayai-ocr-v2.5-nova](https://huggingface.co/JustANormalTinkerer/hayai-ocr-v2.5-nova) | 256 / 384 / 512 patches；其余同上 |
 | baberuOCR v1.2 | [genshiai-daichi/baberu-ocr](https://huggingface.co/genshiai-daichi/baberu-ocr)，标签 `v1.2` | fp16；README 的生成设置，只把新 token 上限改为 128 |
+| PaddleOCR-VL-1.6 manga LoRA v6 ※ | [sorryhyun/paddleocr-vl-1.6-manga-lora](https://huggingface.co/sorryhyun/paddleocr-vl-1.6-manga-lora/tree/57e7c65024d753022299340b3b9b6aafc158a79b/v6) 的 `v6` 目录，commit `57e7c650` | Ascend 910B 上 bf16（未测速）；模型卡代码：PEFT 合并 LoRA 后加载 `lm.safetensors`；提示词 `OCR:`；贪心解码；最多 80 个新 token；按裁图面积排序每批 16 框、左填充 |
 | mangaOCR | [kha-white/manga-ocr-base](https://huggingface.co/kha-white/manga-ocr-base) | fp16；其余为包的默认设置 |
 
 ## 利益关联声明
@@ -270,7 +274,7 @@ python eval/score.py --pred my_preds.jsonl --name my_model --out results/my_mode
 |---|---|
 | `data/gt.jsonl` | 标签与元数据，3,015 框 |
 | `data/llm_readings.jsonl` | 每框的三家 LLM 读法 |
-| `data/predictions/` | 所有参评模型的输出（batch 1） |
+| `data/predictions/` | 所有参评模型的输出（batch 1；PaddleOCR-VL-1.6 manga LoRA v6 为每批 16 框） |
 | `eval/` | 评分脚本和 RIN 归一化代码 |
 | `speed/` | 测速脚本 |
 | `results/` | 各模型原始测速结果（逐张延迟和最大吞吐搜索） |

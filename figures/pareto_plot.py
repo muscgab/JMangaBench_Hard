@@ -15,7 +15,7 @@ SURF, INK, INK2, MUTED, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#a3a29c", "#e9e
 COL = {"ours": "#2a78d6", "hayai": "#eb6834", "other": "#8a8984"}
 NAME = {"ours": "By the authors", "hayai": "Hayai family (AR)", "other": "Other"}
 SHORT = {"Hayai v2.5 Nova p256": "Nova p256", "Hayai v2.5 Nova p384": "Nova p384", "Hayai v2.5 Nova p512": "Nova p512"}
-rows = [r for r in json.load(open(D / "interactive_data.json")) if not r["more"]]
+rows = [r for r in json.load(open(D / "interactive_data.json")) if not r["more"] and r["lat"] is not None]  # 11-10: untimed rows not drawn
 for r in rows: r["label"] = SHORT.get(r["name"], r["name"])
 SUB = "JMangaBench_Hard v1.0  ·  3,015 text boxes  ·  RTX 4070, fp16"
 

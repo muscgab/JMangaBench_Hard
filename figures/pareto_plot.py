@@ -1,5 +1,5 @@
 """JMangaBench_Hard v1.0 static Pareto charts (2026-11-02), same style as JMangaBench_Read v1.3 (its figures/pareto_plot.py). Reads
-interactive_data.json. Models flagged "more" (nar-small-R16) are left out. Points beyond the axis range are drawn at the edge as a triangle.
+interactive_data.json. Models flagged "more" are left out. Points beyond the axis range are drawn at the edge as a triangle.
   pareto_image.png        score vs per-image latency (batch = 1, mean)
   pareto_throughput.png   score vs max throughput (best batch size per model)"""
 import json
@@ -53,21 +53,21 @@ def draw(xkey, out, title, xlabel, xticks, xlim, ylim, yticks, labels, note, low
     fig.text(0.07, 0.95, title, fontsize=18, color=INK); fig.text(0.07, 0.912, SUB, fontsize=11, color=INK2)
     ax.legend(loc="center right" if low_x else "lower left", frameon=False, fontsize=10, labelcolor=INK2, handletextpad=0.4)
     fig.text(0.07, 0.008, "\n".join(fill(line, width=136) for line in note.splitlines()), fontsize=8.5, color=INK2)
-    fig.subplots_adjust(left=0.08, right=0.93, top=0.865, bottom=0.12)
+    fig.subplots_adjust(left=0.08, right=0.93, top=0.865, bottom=0.145)
     fig.savefig(D / out, dpi=170, facecolor=SURF); plt.close(fig)
 
 def fr(xk, low_x):
     F = frontier([(r[xk], r["score"]) for r in rows], low_x)
     return ", ".join(next(r["name"] for r in rows if (r[xk], r["score"]) == p) for p in F)
 YL, YT = (80, 98.3), list(range(80, 99, 2))
-IMG_LAB = {"ns3-98k": (19, 13), "hayai_supernova_p256": (18, 20), "ar_exp": (-18, -23), "cpt_flex": (24, 18), "nar_small": (34, 4), "charspot_small": (30, -16), "nar_small_distil": (26, -4),
+IMG_LAB = {"ns3-98k": (19, 13), "hayai_supernova_p256": (18, 20), "ar_exp": (-17, 12), "cpt_flex": (86, 31), "nar_small": (34, 4), "charspot_small": (30, -16), "nar_small_distil": (26, -4),
            "charspot_nano": (22, -14), "preview": (-24, 18), "hayai_nova_p256": (-30, -22), "hayai_nova_p384": (22, 16), "hayai_nova_p512": (26, -12),
            "hayai_v2": (-20, 18), "baberu_v12": (-26, 16), "manga_ocr": (16, 18)}
 draw("lat", "pareto_image.png", "Accuracy vs. per-image latency",
      "Per-image latency (ms, batch = 1, mean over 3,015 crops, preprocessing included)   ←  faster",
      [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], (0, 92), YL, YT, IMG_LAB,
      "Scores from batch = 1 outputs. mangaOCR (55.67) is below the axis range.\nPareto frontier: " + fr("lat", True) + ".")
-THR_LAB = {"ns3-98k": (-20, 16), "hayai_supernova_p256": (18, 9), "ar_exp": (20, 12), "cpt_flex": (-90, 12), "nar_small": (-12, 42), "charspot_small": (-26, -16), "nar_small_distil": (-30, -14),
+THR_LAB = {"ns3-98k": (-20, 16), "hayai_supernova_p256": (18, 9), "ar_exp": (20, 12), "cpt_flex": (-90, 12), "nar_small": (-25, 25), "charspot_small": (-26, -16), "nar_small_distil": (-30, -14),
            "charspot_nano": (20, -14), "preview": (20, 14), "hayai_nova_p256": (22, 14), "hayai_nova_p384": (22, -10), "hayai_nova_p512": (22, -14),
            "hayai_v2": (22, -12), "baberu_v12": (22, 12), "manga_ocr": (16, 18)}
 draw("thr", "pareto_throughput.png", "Accuracy vs. max throughput",

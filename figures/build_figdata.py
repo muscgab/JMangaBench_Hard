@@ -8,7 +8,7 @@ sys.path.insert(0, str(R / "eval")); import score as SC
 gt = [json.loads(l) for l in open(R / "data/gt.jsonl", encoding="utf-8")]
 # id (prediction file) -> display name, arch, group, params (M), precision, more?
 M = [("ar_exp", "manga-ocr-ar-experimental", "AR", "ours", 130.6, "fp16", False),
-     ("ns3-98k", "ns3-98k", "AR", "ours", 130.596108, "fp16", False),
+     ("ns3-98k", "ns3-98k", "AR", "ours", 130.596108, "fp16", True),
      ("hayai_supernova_p256", "Hayai v2.7 Supernova p256", "AR", "hayai", 158.379408, "fp16", False),
      ("nar_small_r16", "nar-small-R16", "NAR", "ours", 54.2, "fp16", True),
      ("cpt_flex", "manga-ocr-base-CPT-flex", "AR", "ours", 110.9, "fp16 enc / fp32 dec", False),
@@ -18,8 +18,8 @@ M = [("ar_exp", "manga-ocr-ar-experimental", "AR", "ours", 130.6, "fp16", False)
      ("charspot_nano", "manga-ocr-charspot-nano", "CharDet", "ours", 1.70, "fp16", False),
      ("preview", "Preview", "NAR", "ours", 196.0, "fp16", False),
      ("hayai_nova_p256", "Hayai v2.5 Nova p256", "AR", "hayai", 157.0, "fp16", False),
-     ("hayai_nova_p384", "Hayai v2.5 Nova p384", "AR", "hayai", 157.0, "fp16", False),
-     ("hayai_nova_p512", "Hayai v2.5 Nova p512", "AR", "hayai", 157.0, "fp16", False),
+     ("hayai_nova_p384", "Hayai v2.5 Nova p384", "AR", "hayai", 157.0, "fp16", True),
+     ("hayai_nova_p512", "Hayai v2.5 Nova p512", "AR", "hayai", 157.0, "fp16", True),
      ("hayai_v2", "Hayai v2.1", "AR", "hayai", 156.0, "fp16", False),
      ("baberu_v12", "baberuOCR v1.2", "AR", "other", 113.0, "fp16", False),
      ("paddleocr_vl_1_6_manga_lora_v6", "PaddleOCR-VL-1.6 manga LoRA v6", "AR (VLM)", "other", 959.0, "bf16 (Ascend 910B)", False),  # 11-10: accuracy only, no speed

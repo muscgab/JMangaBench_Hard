@@ -1,7 +1,7 @@
 """JMangaBench_Hard v1.0 interactive leaderboard (2026-11-02), adapted from JMangaBench_Read v1.3 (its figures/build_site.py)
 -> figures/pareto_interactive.html (copied to docs/index.html). Self-contained, no external scripts. English and Chinese UI.
 X: per-image latency (default) / max throughput. Y: score (default) / CER / EM / EM (NFKC). Subsets: all / agreed / human / sfx lettering /
-handwritten / box adjusted. "More models" (nar-small-R16, hidden by default). LLM readers: table only, marked *, listed last.
+handwritten / box adjusted. "More models" (hidden by default). LLM readers: table only, marked *, listed last.
 Points beyond the y range (mangaOCR) are drawn at the edge as a triangle with the value in the label."""
 import json
 from pathlib import Path
@@ -84,7 +84,7 @@ const T = {
      yt:{score:"Accuracy",cer:"CER",em:"Exact match",em_nfkc:"Exact match (NFKC)"},
      s:{all:"All",agreed:"Agreed",human:"Human-decided",sfx:"SFX lettering",handwritten:"Handwritten",adjusted:"Box adjusted"},
      sn:{all:"all boxes, 3,015",agreed:"agreed by three LLMs, 2,161 boxes",human:"human-decided, 854 boxes",sfx:"sfx lettering, 1,835 boxes",handwritten:"handwritten, 1,056 boxes",adjusted:"box redrawn in review, 75 boxes"},
-     subset:"Subset",more:"More models (nar-small-R16)",vs:"vs.",ned:"1 − NED",
+     subset:"Subset",more:"More models",vs:"vs.",ned:"1 − NED",
      legend:{ours:"By the authors",hayai:"Hayai family (AR)",other:"Other"},
      note:{lat:"Scores from batch = 1 outputs. ",thr:"Scores from batch = 1 outputs. Batch size at max throughput in the hover card. "},
      note2:"Main scores use RIN v1.2 (reading-invariant normalization), as in JMangaBench_Read. Triangles at an edge: value beyond the axis range.",
@@ -102,7 +102,7 @@ const T = {
      yt:{score:"准确率",cer:"CER",em:"完全匹配",em_nfkc:"完全匹配（NFKC）"},
      s:{all:"全部",agreed:"三家一致",human:"人工裁定",sfx:"拟声字",handwritten:"手写",adjusted:"调整过框"},
      sn:{all:"全部 3,015 框",agreed:"三家 LLM 一致 2,161 框",human:"人工裁定 854 框",sfx:"拟声字 1,835 框",handwritten:"手写 1,056 框",adjusted:"审核时重画框 75 框"},
-     subset:"板块",more:"更多模型（nar-small-R16）",vs:"与",ned:"1 − NED",
+     subset:"板块",more:"更多模型",vs:"与",ned:"1 − NED",
      legend:{ours:"本评测集作者的模型",hayai:"Hayai 系列（AR）",other:"其他"},
      note:{lat:"分数取 batch = 1 的输出。",thr:"分数取 batch = 1 的输出。最大吞吐对应的 batch 见悬停卡片。"},
      note2:"主分数使用 RIN v1.2（阅读等价归一化），与 JMangaBench_Read 相同。边缘的三角：数值超出坐标范围。",

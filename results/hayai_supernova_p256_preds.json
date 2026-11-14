@@ -1,0 +1,16 @@
+{
+ "model": "hayai_supernova_p256",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 109.2,
+ "lat_ms_mean": 36.22,
+ "lat_ms_p50": 35.97,
+ "lat_ms_p90": 40.03,
+ "lat_ms_p99": 47.95,
+ "lat_ms_max": 244.1,
+ "imgs_per_sec_bs1": 27.6,
+ "peak_mem_mb_bs1": 1003,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.5.1+cu124",
+ "attn": null
+}

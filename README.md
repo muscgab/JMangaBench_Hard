@@ -20,20 +20,22 @@ Ranked by score (mean 1 − normalized edit distance, defined in [Scoring](#scor
 
 | # | Model | Arch | Params | Score ↑ | CER % ↓ | EM % ↑ | EM NFKC % ↑ | Per-image ms ↓ | Max img/s ↑ |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | manga-ocr-ar-experimental † ‡ | AR | 131M | **95.98** | 4.75 | 88.52 | 88.26 | 30.1 | 197 (b20) |
-| 2 | PaddleOCR-VL-1.6 manga LoRA v6 ※ | AR (VLM) | 959M | **91.87** | 9.21 | 78.57 | 69.55 | — | — |
-| 3 | manga-ocr-base-CPT-flex † ¶ | AR | 111M | **90.17** | 11.16 | 74.73 | 74.43 | 6.4 | 346 (b24) |
-| 4 | manga-ocr-nar-small † | NAR | 54M | **89.95** | 11.15 | 73.03 | 72.77 | 6.9 | 394 (b10) |
-| 5 | manga-ocr-charspot-small † ◇ | CharDet | 11M | **89.80** | 11.50 | 73.90 | 73.37 | 7.1 | 283 (b256) |
-| 6 | Hayai v2.5 Nova p256 | AR | 157M | **88.87** | 11.61 | 72.34 | 71.87 | 45.4 | 301 (b40) |
-| 7 | Preview † | NAR | 196M | **88.78** | 12.72 | 71.04 | 69.62 | 38.4 | 138 (b16) |
-| 8 | Hayai v2.5 Nova p384 | AR | 157M | **88.48** | 11.96 | 72.31 | 71.91 | 46.1 | 233 (b48) |
-| 9 | Hayai v2.5 Nova p512 | AR | 157M | **88.35** | 12.11 | 71.71 | 71.31 | 48.8 | 143 (b16) |
-| 10 | manga-ocr-nar-small-distil † ∥ | NAR | 30M | **87.46** | 14.16 | 68.99 | 68.72 | 6.4 | 393 (b10) |
-| 11 | manga-ocr-charspot-nano † ◇ | CharDet | 1.7M | **85.01** | 17.78 | 65.07 | 64.54 | 4.5 | 341 (b128) |
-| 12 | Hayai v2.1 | AR | 156M | **83.62** | 17.09 | 62.59 | 60.36 | 85.0 | 114 (b128) |
-| 13 | baberuOCR v1.2 | AR | 113M | **81.84** | 20.67 | 63.42 | 60.90 | 76.5 | 136 (b192) |
-| 14 | mangaOCR | AR | 111M | **55.67** | 48.33 | 31.24 | 29.68 | 60.5 | 74 (b64) |
+| 1 | ns3-98k † | AR | 131M | **96.73** | 3.71 | 90.48 | 90.22 | 9.5 | 300 (b12) |
+| 2 | Hayai v2.7 Supernova p256 | AR | 158M | **96.10** | 4.76 | 88.76 | 88.49 | 36.2 | 363 (b32) |
+| 3 | manga-ocr-ar-experimental † ‡ | AR | 131M | **95.98** | 4.75 | 88.52 | 88.26 | 30.1 | 197 (b20) |
+| 4 | PaddleOCR-VL-1.6 manga LoRA v6 ※ | AR (VLM) | 959M | **91.87** | 9.21 | 78.57 | 69.55 | — | — |
+| 5 | manga-ocr-base-CPT-flex † ¶ | AR | 111M | **90.17** | 11.16 | 74.73 | 74.43 | 6.4 | 346 (b24) |
+| 6 | manga-ocr-nar-small † | NAR | 54M | **89.95** | 11.15 | 73.03 | 72.77 | 6.9 | 394 (b10) |
+| 7 | manga-ocr-charspot-small † ◇ | CharDet | 11M | **89.80** | 11.50 | 73.90 | 73.37 | 7.1 | 283 (b256) |
+| 8 | Hayai v2.5 Nova p256 | AR | 157M | **88.87** | 11.61 | 72.34 | 71.87 | 45.4 | 301 (b40) |
+| 9 | Preview † | NAR | 196M | **88.78** | 12.72 | 71.04 | 69.62 | 38.4 | 138 (b16) |
+| 10 | Hayai v2.5 Nova p384 | AR | 157M | **88.48** | 11.96 | 72.31 | 71.91 | 46.1 | 233 (b48) |
+| 11 | Hayai v2.5 Nova p512 | AR | 157M | **88.35** | 12.11 | 71.71 | 71.31 | 48.8 | 143 (b16) |
+| 12 | manga-ocr-nar-small-distil † ∥ | NAR | 30M | **87.46** | 14.16 | 68.99 | 68.72 | 6.4 | 393 (b10) |
+| 13 | manga-ocr-charspot-nano † ◇ | CharDet | 1.7M | **85.01** | 17.78 | 65.07 | 64.54 | 4.5 | 341 (b128) |
+| 14 | Hayai v2.1 | AR | 156M | **83.62** | 17.09 | 62.59 | 60.36 | 85.0 | 114 (b128) |
+| 15 | baberuOCR v1.2 | AR | 113M | **81.84** | 20.67 | 63.42 | 60.90 | 76.5 | 136 (b192) |
+| 16 | mangaOCR | AR | 111M | **55.67** | 48.33 | 31.24 | 29.68 | 60.5 | 74 (b64) |
 | – | GPT-6.1 Sol * | LLM | — | 97.47 | 2.47 | 93.60 | 93.27 | — | — |
 | – | Claude Opus 5.5 * | LLM | — | 94.38 | 5.61 | 86.00 | 85.41 | — | — |
 | – | GPT-6.1 Terra * | LLM | — | 92.81 | 6.89 | 84.58 | 83.65 | — | — |
@@ -47,6 +49,7 @@ Ranked by score (mean 1 − normalized edit distance, defined in [Scoring](#scor
 </details>
 
 - † Made by the authors of this benchmark (see [Conflict of interest](#conflict-of-interest)).
+- ns3-98k is an experimental release by the authors, with the checkpoint selected on Hard. It uses one FP16 backend for the latency and throughput tests on RTX 4070.
 - ‡ manga-ocr-ar-experimental: an experimental release by the authors (ViT-B encoder, 2-layer autoregressive decoder). fp16 and fp32 outputs agree on 3,014 of 3,015 boxes.
 - ¶ manga-ocr-base-CPT-flex: mangaOCR after continued pre-training by the authors; see the Read leaderboard notes.
 - ∥ manga-ocr-nar-small-distil: at its max-throughput batch size its outputs match batch-size-1 outputs on 96.7% of the 512 timed crops; for every other model the match is 99.8–100%.
@@ -61,6 +64,8 @@ Ranked by score (mean 1 − normalized edit distance, defined in [Scoring](#scor
 
 | Model | agreed (2,161) | human (854) | sfx lettering (1,835) | handwritten (1,056) | box adjusted (75) |
 |---|---|---|---|---|---|
+| ns3-98k | 94.77 | 79.63 | 90.95 | 90.15 | 73.33 |
+| Hayai v2.7 Supernova p256 | 94.12 | 75.18 | 89.75 | 87.88 | 69.33 |
 | manga-ocr-ar-experimental | 94.26 | 74.00 | 89.26 | 88.07 | 70.67 |
 | PaddleOCR-VL-1.6 manga LoRA v6 | 86.58 | 58.31 | 79.89 | 76.70 | 50.67 |
 | manga-ocr-base-CPT-flex | 83.20 | 53.28 | 73.02 | 78.12 | 60.00 |
@@ -229,6 +234,8 @@ There is no per-page column: the benchmark keeps only 2.25 boxes per page on ave
 | Model | Weights | Settings |
 |---|---|---|
 | manga-ocr-ar-experimental † | [muscgab/manga-ocr-ar-experimental](https://huggingface.co/muscgab/manga-ocr-ar-experimental), tag `ema106k` | fp16; the inference code released with the model (CUDA graph for the decoder step) |
+| ns3-98k † | [ns3-98k](https://huggingface.co/muscgab/manga-ocr-ar-experimental/tree/ns3-98k) | FP16, CUDA graphs for encoding and decoding |
+| Hayai v2.7 Supernova p256 | [Supernova](https://huggingface.co/JustANormalTinkerer/hayai-ocr-v2.7-supernova/tree/517bdeeb64b68c08939e12f7211e99943c1e1640) | 256 patches, FP16 CUDA Graph |
 | manga-ocr-base-CPT-flex † | [muscgab/manga-ocr-base-CPT-flex](https://huggingface.co/muscgab/manga-ocr-base-CPT-flex) | encoder fp16, decoder fp32; the CUDA path of the released package |
 | manga-ocr-nar-small † | [muscgab/manga-ocr-nar-small](https://huggingface.co/muscgab/manga-ocr-nar-small) | fp16; the CUDA backend released with the model |
 | manga-ocr-nar-small-distil † | [muscgab/manga-ocr-nar-small-distil](https://huggingface.co/muscgab/manga-ocr-nar-small-distil) | fp16 with simulated int8; the CUDA backend released with the model |

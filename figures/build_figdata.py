@@ -8,6 +8,8 @@ sys.path.insert(0, str(R / "eval")); import score as SC
 gt = [json.loads(l) for l in open(R / "data/gt.jsonl", encoding="utf-8")]
 # id (prediction file) -> display name, arch, group, params (M), precision, more?
 M = [("ar_exp", "manga-ocr-ar-experimental", "AR", "ours", 130.6, "fp16", False),
+     ("ns3-98k", "ns3-98k", "AR", "ours", 130.596108, "fp16", False),
+     ("hayai_supernova_p256", "Hayai v2.7 Supernova p256", "AR", "hayai", 158.379408, "fp16", False),
      ("nar_small_r16", "nar-small-R16", "NAR", "ours", 54.2, "fp16", True),
      ("cpt_flex", "manga-ocr-base-CPT-flex", "AR", "ours", 110.9, "fp16 enc / fp32 dec", False),
      ("nar_small", "manga-ocr-nar-small", "NAR", "ours", 54.2, "fp16", False),

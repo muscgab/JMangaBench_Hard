@@ -64,6 +64,134 @@
   }
  },
  {
+  "id": "ns3-98k",
+  "name": "ns3-98k",
+  "arch": "AR",
+  "group": "ours",
+  "more": false,
+  "precision": "fp16",
+  "params_m": 130.596108,
+  "score": 96.73,
+  "cer": 3.71,
+  "em": 90.48,
+  "em_nfkc": 90.22,
+  "lat": 9.47,
+  "lat_p50": 9.05,
+  "vram_bs1": 288,
+  "thr": 300.33,
+  "best_bs": 12,
+  "best_mem": 3664,
+  "agree_bs1": 1.0,
+  "sub": {
+   "all": {
+    "score": 96.73,
+    "cer": 3.71,
+    "em": 90.48,
+    "em_nfkc": 90.22,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 98.22,
+    "cer": 2.06,
+    "em": 94.77,
+    "em_nfkc": 94.4,
+    "n": 2161
+   },
+   "human": {
+    "score": 92.98,
+    "cer": 7.32,
+    "em": 79.63,
+    "em_nfkc": 79.63,
+    "n": 854
+   },
+   "sfx": {
+    "score": 96.79,
+    "cer": 3.95,
+    "em": 90.95,
+    "em_nfkc": 90.79,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 96.74,
+    "cer": 3.46,
+    "em": 90.15,
+    "em_nfkc": 89.68,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 90.39,
+    "cer": 11.89,
+    "em": 73.33,
+    "em_nfkc": 73.33,
+    "n": 75
+   }
+  }
+ },
+ {
+  "id": "hayai_supernova_p256",
+  "name": "Hayai v2.7 Supernova p256",
+  "arch": "AR",
+  "group": "hayai",
+  "more": false,
+  "precision": "fp16",
+  "params_m": 158.379408,
+  "score": 96.1,
+  "cer": 4.76,
+  "em": 88.76,
+  "em_nfkc": 88.49,
+  "lat": 36.22,
+  "lat_p50": 35.97,
+  "vram_bs1": 1003,
+  "thr": 363.04,
+  "best_bs": 32,
+  "best_mem": 2058,
+  "agree_bs1": 0.998,
+  "sub": {
+   "all": {
+    "score": 96.1,
+    "cer": 4.76,
+    "em": 88.76,
+    "em_nfkc": 88.49,
+    "n": 3015
+   },
+   "agreed": {
+    "score": 97.92,
+    "cer": 2.73,
+    "em": 94.12,
+    "em_nfkc": 93.75,
+    "n": 2161
+   },
+   "human": {
+    "score": 91.52,
+    "cer": 9.19,
+    "em": 75.18,
+    "em_nfkc": 75.18,
+    "n": 854
+   },
+   "sfx": {
+    "score": 96.23,
+    "cer": 4.77,
+    "em": 89.75,
+    "em_nfkc": 89.59,
+    "n": 1835
+   },
+   "handwritten": {
+    "score": 96.0,
+    "cer": 4.57,
+    "em": 87.88,
+    "em_nfkc": 87.41,
+    "n": 1056
+   },
+   "adjusted": {
+    "score": 87.95,
+    "cer": 14.02,
+    "em": 69.33,
+    "em_nfkc": 69.33,
+    "n": 75
+   }
+  }
+ },
+ {
   "id": "nar_small_r16",
   "name": "nar-small-R16",
   "arch": "NAR",

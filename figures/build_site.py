@@ -7,7 +7,10 @@ import json
 from pathlib import Path
 D = Path(__file__).resolve().parent
 rows = json.load(open(D / "interactive_data.json")); llm = json.load(open(D / "llm_rows.json"))
-NOTES = {"ar_exp": ["By the authors. Experimental release: muscgab/manga-ocr-ar-experimental, tag ema106k (ViT-B encoder + 2-layer autoregressive decoder). fp16; outputs equal fp32 on 3,014 of 3,015 boxes.", "本评测集作者的实验性发布：muscgab/manga-ocr-ar-experimental，标签 ema106k（ViT-B 编码器 + 2 层自回归解码器）。fp16；与 fp32 输出在 3,015 框中 3,014 框相同。"],
+NOTES = {
+    "ns3-98k": ["Experimental release by the authors. Selected on JMangaBench_Hard. FP16 and CUDA graphs for encoding and decoding.", "本评测作者发布的实验模型，按 JMangaBench_Hard 选点。FP16，编码和解码使用 CUDA Graph。"],
+    "hayai_supernova_p256": ["Hayai OCR v2.7 Supernova release. Official preprocessing, 256 patches and FP16 CUDA Graph decoding.", "Hayai OCR v2.7 Supernova 正式版。官方预处理，256 patch，FP16 CUDA Graph 解码。"],
+"ar_exp": ["By the authors. Experimental release: muscgab/manga-ocr-ar-experimental, tag ema106k (ViT-B encoder + 2-layer autoregressive decoder). fp16; outputs equal fp32 on 3,014 of 3,015 boxes.", "本评测集作者的实验性发布：muscgab/manga-ocr-ar-experimental，标签 ema106k（ViT-B 编码器 + 2 层自回归解码器）。fp16；与 fp32 输出在 3,015 框中 3,014 框相同。"],
          "nar_small": ["By the authors. Released: muscgab/manga-ocr-nar-small.", "本评测集作者的模型。已发布：muscgab/manga-ocr-nar-small。"],
          "nar_small_r16": ["By the authors. Experimental model, weights on the r16 branch of muscgab/manga-ocr-nar-small. Listed without a rank.", "本评测集作者的实验模型，权重在 muscgab/manga-ocr-nar-small 的 r16 分支。列出但不排名。"],
          "charspot_small": ["By the authors. Character detection + learned reading order, no text decoder. CUDA backend of the released package (fp32). Released: muscgab/manga-ocr-charspot-small.", "本评测集作者的模型。逐字检测 + 学习的阅读顺序，没有文本解码器。发布包的 CUDA 后端（fp32）。已发布：muscgab/manga-ocr-charspot-small。"],
@@ -82,7 +85,7 @@ const T = {
      s:{all:"All",agreed:"Agreed",human:"Human-decided",sfx:"SFX lettering",handwritten:"Handwritten",adjusted:"Box adjusted"},
      sn:{all:"all boxes, 3,015",agreed:"agreed by three LLMs, 2,161 boxes",human:"human-decided, 854 boxes",sfx:"sfx lettering, 1,835 boxes",handwritten:"handwritten, 1,056 boxes",adjusted:"box redrawn in review, 75 boxes"},
      subset:"Subset",more:"More models (nar-small-R16)",vs:"vs.",ned:"1 − NED",
-     legend:{ours:"By the authors (NAR / CharDet; ar-experimental and CPT-flex are AR)",hayai:"Hayai family (AR)",other:"Other"},
+     legend:{ours:"By the authors",hayai:"Hayai family (AR)",other:"Other"},
      note:{lat:"Scores from batch = 1 outputs. ",thr:"Scores from batch = 1 outputs. Batch size at max throughput in the hover card. "},
      note2:"Main scores use RIN v1.2 (reading-invariant normalization), as in JMangaBench_Read. Triangles at an edge: value beyond the axis range.",
      card:{acc:"Accuracy (batch = 1)",comp:"Score",cer:"CER",em:"Exact match",nfkc:"Exact match (NFKC)",
@@ -100,7 +103,7 @@ const T = {
      s:{all:"全部",agreed:"三家一致",human:"人工裁定",sfx:"拟声字",handwritten:"手写",adjusted:"调整过框"},
      sn:{all:"全部 3,015 框",agreed:"三家 LLM 一致 2,161 框",human:"人工裁定 854 框",sfx:"拟声字 1,835 框",handwritten:"手写 1,056 框",adjusted:"审核时重画框 75 框"},
      subset:"板块",more:"更多模型（nar-small-R16）",vs:"与",ned:"1 − NED",
-     legend:{ours:"本评测集作者的模型（NAR / CharDet；ar-experimental 与 CPT-flex 为 AR）",hayai:"Hayai 系列（AR）",other:"其他"},
+     legend:{ours:"本评测集作者的模型",hayai:"Hayai 系列（AR）",other:"其他"},
      note:{lat:"分数取 batch = 1 的输出。",thr:"分数取 batch = 1 的输出。最大吞吐对应的 batch 见悬停卡片。"},
      note2:"主分数使用 RIN v1.2（阅读等价归一化），与 JMangaBench_Read 相同。边缘的三角：数值超出坐标范围。",
      card:{acc:"准确率（batch = 1）",comp:"得分",cer:"CER",em:"完全匹配",nfkc:"完全匹配（NFKC）",
@@ -150,7 +153,7 @@ function draw(){
   const front = pts.filter(p => !p.yout).filter(p => !pts.some(q => q !== p && (bx(q.x0, p.x0) || q.x0 === p.x0) && (by(q.y, p.y) || q.y === p.y) && !(q.x0 === p.x0 && q.y === p.y))).sort((a, b) => a.x - b.x);
   if (front.length > 1) el("polyline", {points:front.map(p => `${px(p.x)},${py(p.y)}`).join(" "), fill:"none", stroke:"var(--front)", "stroke-width":1.6, "stroke-linejoin":"round"});
   const placed = [], dots = pts.map(p => ({x:px(p.x), y:py(p.y)}));
-  const cands = [[18,-18],[18,18],[-18,-18],[-18,18],[26,0],[-26,0],[0,-26],[0,26],[34,-30],[-34,-30],[34,30],[-34,30],[48,-8],[-48,-8],[52,-40],[-52,-40],[52,40],[-52,40]];
+  const cands = [[18,-18],[18,18],[-18,-18],[-18,18],[26,0],[-26,0],[0,-26],[0,26],[34,-30],[-34,-30],[34,30],[-34,30],[48,-8],[-48,-8],[52,-40],[-52,-40],[52,40],[-52,40],[65,-12],[-65,-12],[65,12],[-65,12],[30,-60],[-30,-60],[30,60],[-30,60],[90,-22],[-90,-22],[90,22],[-90,22],[55,-72],[-55,-72],[55,72],[-55,72]];
   const g = el("g", {});
   for (const p of pts.slice().sort((a, b) => b.y - a.y)){
     const cx = px(p.x), cy = py(p.y), tx = el("text", {class:"mlab"}, g);
@@ -158,7 +161,7 @@ function draw(){
     let best = null;
     for (const [dx, dy] of cands){
       const anchor = dx < 0 ? "end" : (dx === 0 ? "middle" : "start"); tx.setAttribute("text-anchor", anchor); tx.setAttribute("x", cx + dx); tx.setAttribute("y", cy + dy + 4);
-      const b = tx.getBBox(), box = {x:b.x-3, y:b.y-2, w:b.width+6, h:b.height+4};
+      const b = tx.getBBox(), box = {x:b.x-5, y:b.y-3, w:b.width+10, h:b.height+6};
       const inside = box.x >= M.l && box.x + box.w <= W - M.r && box.y >= M.t && box.y + box.h <= H - M.b;
       const hit = placed.some(o => box.x < o.x + o.w && box.x + box.w > o.x && box.y < o.y + o.h && box.y + box.h > o.y)
               || dots.some(d => d.x > box.x - 6 && d.x < box.x + box.w + 6 && d.y > box.y - 6 && d.y < box.y + box.h + 6);

@@ -1,0 +1,16 @@
+{
+ "model": "ns3-98k",
+ "n": 3015,
+ "batch": 1,
+ "total_sec": 28.6,
+ "lat_ms_mean": 9.47,
+ "lat_ms_p50": 9.05,
+ "lat_ms_p90": 10.58,
+ "lat_ms_p99": 15.87,
+ "lat_ms_max": 25.47,
+ "imgs_per_sec_bs1": 105.53,
+ "peak_mem_mb_bs1": 288,
+ "gpu": "NVIDIA GeForce RTX 4070",
+ "torch": "2.10.0+cu128",
+ "attn": null
+}
